@@ -70,9 +70,6 @@ const ServicesSection = () => {
               and refined into solutions that deliver measurable impact. We prioritise human experience, 
               sustainable business models, and intentional growth to ensure every product creates lasting value.
             </p>
-            <Button variant="cellular" size="lg" className="hover-glow">
-              Explore Product Lab
-            </Button>
           </div>
         </MagneticElement>
       </div>
