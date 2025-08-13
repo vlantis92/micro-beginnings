@@ -35,7 +35,7 @@ const PhilosophySection = () => {
             <div className="space-y-6">
               <div className="text-lg text-muted-foreground leading-relaxed">
                 <p className="mb-4">Smaller footprints. Smaller increments. Smaller empires.</p>
-                <p className="mb-4 text-accent font-medium">Distributive. Collaborative.</p>
+                <p className="mb-4 text-accent font-medium">Distributed. Collaborative.</p>
                 <p className="text-xl font-semibold text-gradient">
                   A simple reframing, small is powerful.
                 </p>

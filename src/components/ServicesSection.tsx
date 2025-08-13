@@ -9,11 +9,11 @@ const strategyServices = [
   },
   {
     title: "Strategy Workshops", 
-    description: "Structured workshops following a Smaller approach, that remove assumptions, return to first principles, and reframe complex problems with bitwise actionable steps."
+    description: "Structured workshops following a Smaller approach, that remove assumptions, return to first principles, and reframe complex problems with bite-sized actionable steps."
   },
   {
     title: "Embedded Support",
-    description: "Up to six months of hands-on capacity, working within your team to move \"O, that's an interesting idea\" to real outcomes for your mission."
+    description: "Up to six months of hands-on capacity, working within your team to move \"Oh, that's an interesting idea\" to real outcomes for your mission."
   }
 ];
 
@@ -63,7 +63,7 @@ const ServicesSection = () => {
           <div className="bg-gradient-to-r from-accent/10 to-primary/10 rounded-3xl p-12 border border-accent/20">
             <h3 className="text-4xl font-bold mb-6 text-accent">Product Lab</h3>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              The Smaller lab is our in house product studio- bringing to life ideas that have high potential to be impactful.
+              The Smaller lab is our in-house product studio— bringing to life ideas that have high potential to be impactful.
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Smaller by design, we start with focused experiments, shaped through real-world testing, 
