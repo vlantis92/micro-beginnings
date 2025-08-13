@@ -2,39 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Smaller - Microbiology inspired design system. All colors MUST be HSL. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core colors - Laboratory inspired */
+    --background: 210 25% 98%;
+    --foreground: 215 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card system */
+    --card: 210 15% 99%;
+    --card-foreground: 215 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Interactive elements */
+    --popover: 210 15% 99%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep lab blue */
+    --primary: 215 85% 25%;
+    --primary-foreground: 210 15% 99%;
+    --primary-glow: 215 85% 35%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Microscopic green */
+    --secondary: 165 75% 28%;
+    --secondary-foreground: 210 15% 99%;
+    --secondary-glow: 165 75% 45%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones */
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Cellular cyan */
+    --accent: 185 85% 35%;
+    --accent-foreground: 210 15% 99%;
+    --accent-glow: 185 85% 55%;
 
+    /* States */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 210 15% 99%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs */
+    --border: 210 15% 88%;
+    --input: 210 15% 90%;
+    --ring: 215 85% 35%;
+
+    /* Gradients - Microbiology inspired */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-cellular: radial-gradient(ellipse at center, hsl(var(--accent-glow) / 0.3), hsl(var(--primary-glow) / 0.2), transparent);
+    
+    /* Shadows with glow effects */
+    --shadow-glow: 0 10px 40px -15px hsl(var(--primary-glow) / 0.4);
+    --shadow-accent-glow: 0 10px 40px -15px hsl(var(--accent-glow) / 0.4);
+    --shadow-soft: 0 4px 20px -8px hsl(var(--foreground) / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -100,6 +125,130 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+    cursor: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Cursor follower */
+  .cursor-follower {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gradient-accent);
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 9999;
+    transition: transform 0.1s ease-out;
+  }
+
+  /* Particle animations */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .particle-1 {
+    animation-delay: 0s;
+    background: hsl(var(--accent-glow) / 0.6);
+  }
+
+  .particle-2 {
+    animation-delay: 2s;
+    background: hsl(var(--primary-glow) / 0.5);
+  }
+
+  .particle-3 {
+    animation-delay: 4s;
+    background: hsl(var(--secondary-glow) / 0.4);
+  }
+
+  /* Interactive elements */
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .magnetic-element {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Text effects */
+  .text-gradient {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary-glow) / 0.5);
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px) scale(1.1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-10px) translateX(-5px) scale(0.9);
+      opacity: 1;
+    }
+    75% {
+      transform: translateY(-30px) translateX(-10px) scale(1.05);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--accent-glow) / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--accent-glow) / 0.8);
+    }
+  }
+
+  @keyframes drift {
+    0% {
+      transform: translateX(-10px) rotate(0deg);
+    }
+    50% {
+      transform: translateX(10px) rotate(180deg);
+    }
+    100% {
+      transform: translateX(-10px) rotate(360deg);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-drift {
+    animation: drift 8s linear infinite;
   }
 }
