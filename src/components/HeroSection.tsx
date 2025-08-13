@@ -41,7 +41,12 @@ const HeroSection = () => {
         </MagneticElement>
         
         <MagneticElement strength={0.25}>
-          <Button variant="hero" size="lg" className="text-lg px-12 py-6 hover-glow">
+          <Button 
+            variant="hero" 
+            size="lg" 
+            className="text-lg px-12 py-6 hover-glow"
+            onClick={() => window.location.href = 'mailto:warwick@smallerby.design'}
+          >
             Let's make it smaller
           </Button>
         </MagneticElement>
